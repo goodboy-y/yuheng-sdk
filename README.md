@@ -33,7 +33,7 @@ implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
 ### 1. 初始化客户端
 
 ```java
-import com.compass.yuhengapi.sdk.YuhengClient;
+import io.github.yuhengapi.sdk.YuhengClient;
 
 // 初始化客户端
 YuhengClient client = new YuhengClient("http://localhost:8080", "myClientId", "mySecret");
@@ -212,9 +212,9 @@ try {
 ## 完整示例
 
 ```java
-import com.compass.yuhengapi.sdk.YuhengClient;
-import com.compass.yuhengapi.sdk.YuhengResponse;
-import com.compass.yuhengapi.sdk.PageInfo;
+import io.github.goodboy-y.yuhengapi.sdk.YuhengClient;
+import io.github.goodboy-y.yuhengapi.sdk.YuhengResponse;
+import io.github.goodboy-y.yuhengapi.sdk.PageInfo;
 
 import java.util.HashMap;
 import java.util.List;

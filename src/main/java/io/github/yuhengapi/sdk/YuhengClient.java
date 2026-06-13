@@ -1,4 +1,4 @@
-package com.compass.yuhengapi.sdk;
+package io.github.yuhengapi.sdk;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -13,7 +13,9 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.util.Timeout;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -150,14 +152,18 @@ public class YuhengClient {
             urlBuilder.append("?");
             boolean first = true;
             for (Map.Entry<String, Object> entry : params.entrySet()) {
-                if (entry.getValue() != null) {
-                    if (!first) {
-                        urlBuilder.append("&");
+                try {
+                    if (entry.getValue() != null) {
+                        if (!first) {
+                            urlBuilder.append("&");
+                        }
+                        urlBuilder.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                        urlBuilder.append("=");
+                        urlBuilder.append(URLEncoder.encode(String.valueOf(entry.getValue()), "UTF-8"));
+                        first = false;
                     }
-                    urlBuilder.append(URLEncoder.encode(entry.getKey(), StandardCharsets.UTF_8));
-                    urlBuilder.append("=");
-                    urlBuilder.append(URLEncoder.encode(String.valueOf(entry.getValue()), StandardCharsets.UTF_8));
-                    first = false;
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 }
             }
         }

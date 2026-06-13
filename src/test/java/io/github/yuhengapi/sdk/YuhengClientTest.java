@@ -1,4 +1,4 @@
-package com.compass.yuhengapi.sdk;
+package io.github.yuhengapi.sdk;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;

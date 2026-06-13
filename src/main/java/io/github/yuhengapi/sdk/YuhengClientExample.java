@@ -1,8 +1,6 @@
-package com.compass.yuhengapi.sdk;
+package io.github.yuhengapi.sdk;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class YuhengClientExample {
 

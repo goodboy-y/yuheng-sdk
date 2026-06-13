@@ -1,4 +1,4 @@
-package com.compass.yuhengapi.sdk;
+package io.github.yuhengapi.sdk;
 
 import org.junit.jupiter.api.Test;
 
